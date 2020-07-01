@@ -1,0 +1,29 @@
+server:
+  port: 3355
+spring:
+  application:
+    name: cloud-client
+  cloud:
+    config: 
+      label: master  
+      name: config
+      profile: dev
+      uri: http://localhost:1234
+  rabbitmq:
+    host: 39.98.222.209
+    port: 5672
+    username: admin
+    password: gwall
+    virtual-host: /     	   
+eureka:
+  client:
+    register-with-eureka: true   #false表示不向注册中心注册自己
+    fetch-registry: true    #false 表示自己端就是注册中心，我的职责就是维护服务实例，并不需要检索服务
+    service-url:
+      defaultZone: http://eureka-server7001.com:7001/eureka/  
+#暴露的监控地点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"      

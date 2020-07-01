@@ -1,0 +1,22 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: cloud-payment-service
+  cloud:
+    zookeeper: 
+      connect-string: 39.98.221.82:2181
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: gwall_test
+    password: Gwall_test_0bug
+    url: jdbc:mysql://g3-test-ww.mysql.zhangbei.rds.aliyuncs.com:3306/G_901_base?useUnicode=true&characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# MyBatis
+mybatis:
+  # 搜索指定包别名
+  typeAliasesPackage: com.atguigu.springcloud.entites
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/*.xml

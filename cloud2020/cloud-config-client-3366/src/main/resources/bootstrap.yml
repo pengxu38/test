@@ -1,0 +1,27 @@
+server:
+  port: 3366
+spring:
+  application:
+    name: cloud-client
+  cloud:
+    config: 
+      label: master  
+      name: config
+      profile: dev
+      uri: http://localhost:1234	
+  rabbitmq:
+    host: 39.98.222.209
+    port: 5672
+    username: admin
+    password: gwall
+    virtual-host: /          
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server7001.com:7001/eureka/  
+#暴露的监控地点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"      

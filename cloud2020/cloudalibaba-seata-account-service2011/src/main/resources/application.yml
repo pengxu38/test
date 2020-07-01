@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.79.71.107:3360/seata_account
+    username: user
+    password: pengxu
+
+##seata配置,相当于registry.conf    
+seata:
+  enabled: true
+  application-id: seata-account-service
+  tx-service-group: my_test_tx_group
+  enable-auto-data-source-proxy: true
+  config:
+    type: nacos
+    file:
+      name: file.conf
+    nacos:
+      namespace:
+      serverAddr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      userName: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      userName: "nacos"
+      password: "nacos"
+feign:
+  hystrix:
+    enabled: false
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000     
+logging: 
+  level: 
+    io:
+      seata: info
+mybatis:
+  mapperLocations: classpath:mapper/*.xml              
